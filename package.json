@@ -1,0 +1,19 @@
+{
+  "name": "microservices-pattern",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "lerna run test --scope={@walnut/common,@walnut/server}",
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff",
+    "pretty": "lerna run pretty"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
