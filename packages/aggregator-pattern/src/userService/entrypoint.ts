@@ -15,6 +15,7 @@ class Entrypoint {
         this._server.use(express.json())
         this._server.use(express.urlencoded({extended: false, limit: "50mb"}))
         this._server.use(this._middlewares.manOfTheMiddle)
+        this._server.use(this._middlewares.transferToken)
     }
 
     private _confRouters(): void {

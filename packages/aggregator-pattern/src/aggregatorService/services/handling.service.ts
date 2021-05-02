@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { InterfaceInputLogin, InterfaceInputRegister, InterfaceOutputLogin, InterfaceOutputRegister } from '../interfaces/handling.interfaces'
-
+import {getToken} from '../../common/utils/functions'
 class HandlingService {
     public static async login(data: InterfaceInputLogin): Promise<InterfaceOutputLogin> {
        try{
@@ -22,8 +22,11 @@ class HandlingService {
     }
 
     public static async register(data: InterfaceInputRegister): Promise<InterfaceOutputRegister> {
+        const token = getToken()
         try{
-            const resp = await axios.post("http://localhost:4003/auth/register", data)
+            const resp = await axios.post("http://localhost:4003/auth/register", data, {
+                headers: {"token": token}
+            })
             if(resp.status != 200){
                 return {
                     ok: false,

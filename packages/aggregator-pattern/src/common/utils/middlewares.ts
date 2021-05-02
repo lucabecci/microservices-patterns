@@ -16,7 +16,9 @@ class Middlewares implements MiddlewaresInterface{
     public transferToken(req: Request, res: Response, next: NextFunction): any {
         const token = req.headers.token
         if(token === getToken()){
+            console.log("Valid token")
             next()
+            return
         }
         return res.status(400).json({
             ok: false,
