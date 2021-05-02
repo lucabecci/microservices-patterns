@@ -14,6 +14,8 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start:dev": "ts-node-dev src/index.ts"
+    "start:aggregator": "ts-node-dev src/aggregatorService/main.ts",
+    "start:user": "ts-node-dev src/userService/main.ts",
+    "start:post": "ts-node-dev src/postService/main.ts"
   }
 }
