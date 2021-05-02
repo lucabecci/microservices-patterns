@@ -11,6 +11,7 @@ class HandlingRouter {
 
     private _conf(): void {
         this._router.get('/', this._handlingController.index)
+        this._router.post('/auth/register', this._handlingController.register)
     }
 
     public instance(): IRouter {

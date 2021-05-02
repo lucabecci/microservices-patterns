@@ -1,11 +1,14 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import Middlewares, { MiddlewaresInterface } from '../common/utils/middlewares'
+import UserRouter from "./routes/user.routes";
 class Entrypoint {
     private _server: Application
     private _middlewares: MiddlewaresInterface
+    private _userRouter: UserRouter
     constructor(){
         this._server = express()
         this._middlewares = new Middlewares
+        this._userRouter = new UserRouter
     }
 
     private _confMiddleawres(): void {
@@ -15,9 +18,7 @@ class Entrypoint {
     }
 
     private _confRouters(): void {
-        this._server.get('/', function(_req: Request, res: Response): Response {
-            return res.status(200).json("Welcome")
-        })
+        this._server.use('/auth', this._userRouter.instance())
     }
 
 

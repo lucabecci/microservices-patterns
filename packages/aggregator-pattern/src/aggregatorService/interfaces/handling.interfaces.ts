@@ -4,6 +4,7 @@ export interface InterfaceInputLogin {
 }
 
 export interface InterfaceOutputLogin {
+    ok: boolean
     message: string
 }
 
@@ -13,5 +14,6 @@ export interface InterfaceInputRegister {
 }
 
 export interface InterfaceOutputRegister {
+    ok: boolean
     message: string
 }

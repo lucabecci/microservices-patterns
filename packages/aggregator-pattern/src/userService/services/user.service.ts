@@ -1,12 +1,9 @@
 import { InterfaceLoginInput, InterfaceLoginOutput, InterfaceRegisterInput, InterfaceRegisterOutput, InterfaceUser } from "../interfaces/user.interfaces"
 
 class UserService {
-    private users: InterfaceUser[]
-    constructor(){
-        this.users = []
-    }
+    private static users: InterfaceUser[] = []
 
-    public register(data: InterfaceRegisterInput): InterfaceRegisterOutput {
+    public static register(data: InterfaceRegisterInput): InterfaceRegisterOutput {
         const user: InterfaceUser = {
             email: data.email,
             password: data.password
@@ -20,7 +17,7 @@ class UserService {
         }
     }
 
-    public login(data: InterfaceLoginInput): InterfaceLoginOutput{
+    public static login(data: InterfaceLoginInput): InterfaceLoginOutput{
         let response: InterfaceLoginOutput = {
             ok: false,
             message: `Error to login`
